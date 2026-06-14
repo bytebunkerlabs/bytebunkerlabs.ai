@@ -166,36 +166,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(251,250,2
 .arch pre{font-family:var(--fm);font-size:12.5px;line-height:1.75;white-space:pre;color:rgba(255,255,255,.62)}
 .arch .h{color:#7DF0C8;font-weight:500}.arch .a{color:#A8E6CF}.arch .d{color:rgba(255,255,255,.34)}
 
-/* dashboard */
-.dash{margin-top:48px;border-radius:16px;overflow:hidden;border:1px solid var(--line2);box-shadow:var(--sh-lg)}
-.dash-bar{background:#0A2A20;padding:12px 18px;display:flex;align-items:center;gap:12px}
-.dash-bar .d{width:10px;height:10px;border-radius:50%}
-.dash-bar .d:nth-child(1){background:#FF5F57}.dash-bar .d:nth-child(2){background:#FEBC2E}.dash-bar .d:nth-child(3){background:#28C840}
-.dash-url{flex:1;display:flex;justify-content:center}
-.dash-url span{background:rgba(255,255,255,.08);border-radius:7px;padding:5px 18px;font-family:var(--fm);font-size:11.5px;color:rgba(255,255,255,.5)}
-.dash-app{display:flex;min-height:470px;background:var(--paper)}
-.dsb{width:188px;background:var(--card);border-right:1px solid var(--line);flex-shrink:0}
-.dsb-h{padding:15px 16px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:9px}
-.dsb-h .m{width:26px;height:26px;background:var(--forest);border-radius:6px;display:flex;align-items:center;justify-content:center}
-.dsb-h span{font-family:var(--fd);font-size:14px;font-weight:600;color:var(--forest)}
-.dsb-n{padding:11px 8px}
-.dsb-i{padding:7px 12px;border-radius:7px;color:var(--ink2);font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:8px;margin-bottom:3px}
-.dsb-i.on{background:var(--mintbg);color:var(--forest);font-weight:600}
-.dmain{flex:1;padding:22px 26px;overflow:hidden}
-.dmain-h h4{font-family:var(--fd);font-size:20px;font-weight:600;color:var(--ink);margin-bottom:3px}
-.dmain-h p{font-size:12px;color:var(--ink3)}
-.dlbl{font-family:var(--fm);font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--emerald);margin:20px 0 10px}
-.dstat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.dcard{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:13px 15px;box-shadow:var(--sh-sm)}
-.dcard .k{font-size:10px;color:var(--ink3);font-weight:500;margin-bottom:5px}
-.dcard .v{font-family:var(--fd);font-size:23px;font-weight:600;line-height:1}
-.v-em{color:var(--emerald)}.v-em2{color:var(--emerald2)}.v-warn{color:var(--rust)}.v-tx{color:var(--ink)}
-.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.dchip{display:inline-block;padding:3px 8px;border-radius:5px;background:var(--mintbg);font-size:10px;color:var(--forest);font-weight:500;margin:2px 2px 0 0}
-.drow{display:flex;align-items:center;gap:8px;font-size:11px;padding:3px 0}
-.drow .t{color:var(--ink3);font-size:10px;width:40px;flex-shrink:0;font-family:var(--fm)}
-.dpill{padding:2px 7px;border-radius:4px;font-size:10px;font-weight:500;font-family:var(--fm)}
-.dpill.ex{background:var(--mintbg);color:var(--forest)}.dpill.ok{background:#E8F6EC;color:#1B7A3D}.dpill.bl{background:#FBEAE5;color:var(--rust)}
 
 /* split (byoc / security) */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;margin-top:48px;border:1px solid var(--line);border-radius:24px;padding:46px;background:var(--card);box-shadow:var(--sh-md)}
@@ -240,6 +210,19 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(251,250,2
 .paper-viz tr:last-child td{border:none}
 .paper-viz tr.hl td{color:var(--forest)}.paper-viz tr.hl td:first-child{font-family:var(--fd);font-weight:700}
 .pv-y{color:var(--emerald2);font-weight:700}.pv-p{color:var(--gold)}.pv-n{color:var(--line2)}
+
+/* how-it-works flow */
+.flow{margin-top:50px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;align-items:stretch;gap:0}
+.fnode{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 18px;box-shadow:var(--sh-md);text-align:center;display:flex;flex-direction:column;align-items:center}
+.fnode .fic{width:48px;height:48px;border-radius:13px;background:var(--mintbg);border:1px solid var(--mintbg2);color:var(--emerald2);display:flex;align-items:center;justify-content:center;margin-bottom:15px}
+.fnode h4{font-family:var(--fd);font-weight:700;font-size:15.5px;letter-spacing:-.01em;margin-bottom:8px}
+.fnode .fsub{font-size:12.5px;color:var(--ink2);line-height:1.5;margin-bottom:12px}
+.fnode .fchips{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:auto}
+.fchip{font-family:var(--fm);font-size:10px;background:var(--mintbg);color:var(--forest);padding:3px 8px;border-radius:6px;white-space:nowrap}
+.farrow{display:flex;align-items:center;justify-content:center;width:44px;color:var(--emerald2)}
+.farrow svg{animation:flowpulse 1.8s ease-in-out infinite}
+@keyframes flowpulse{0%,100%{transform:translateX(-3px);opacity:.4}50%{transform:translateX(3px);opacity:1}}
+@media(max-width:820px){.flow{grid-template-columns:1fr}.farrow{width:auto;padding:8px 0}.farrow svg{transform:rotate(90deg);animation:none}}
 
 /* roadmap */
 .road-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
@@ -323,7 +306,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <a href="#platform">Platform</a>
 <a href="#roadmap">Roadmap</a>
 <a href="#enterprise">Enterprise</a>
-<a href="#deploy">Deployment</a>
+<a href="#deploy">Hosting</a>
 <a href="#research">Research</a>
 <a href="/request-access.html" class="nav-cta">Request access</a>
 </div>
@@ -345,7 +328,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <a href="#research" class="btn btn-s">Read the paper</a>
 </div>
 <div class="hero-meta">
-<span>21 AI clients</span><span>Zero latency</span><span>SIEM-native</span><span>Runs in your cloud</span>
+<span>21 AI clients</span><span>Zero latency</span><span>SIEM-native</span><span>Fully managed</span>
 </div>
 </div>
 <div class="rv in" style="transition-delay:.1s">
@@ -459,45 +442,39 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 </div>
 </section>
 
-<!-- DASHBOARD -->
+<!-- HOW IT WORKS -->
 <section class="section" style="padding-top:0">
 <div class="shell">
-<div class="rv"><span class="kicker"><span class="num">04</span> The dashboard</span></div>
-<h2 class="title rv">A real-time control plane for<br>every agent and every action</h2>
-<p class="lead rv">See what's running, who approved it, and what risk it carries — across every endpoint, cloud and SaaS surface in your organization.</p>
-<div class="dash rv">
-<div class="dash-bar"><span class="d"></span><span class="d"></span><span class="d"></span><div class="dash-url"><span>app.spectis · overview</span></div></div>
-<div class="dash-app">
-<div class="dsb">
-<div class="dsb-h"><div class="m"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><span>Spectis</span></div>
-<div class="dsb-n">
-<div class="dsb-i on"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Overview</div>
-<div class="dsb-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h7v8l10-12h-7z"/></svg>Live Feed</div>
-<div class="dsb-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M2 21v-2a5 5 0 015-5h4a5 5 0 015 5v2"/></svg>Agents</div>
-<div class="dsb-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>AI Inventory</div>
-<div class="dsb-i"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/></svg>MCP Servers</div>
+<div class="rv"><span class="kicker"><span class="num">04</span> How it works</span></div>
+<h2 class="title rv">From every agent to your SIEM —<br><span class="fx">correlated</span> in one view.</h2>
+<p class="lead rv">Spectis observes across all three planes, joins everything by identity, and delivers correlated intelligence to the tools you already run — nothing in the request path, zero latency.</p>
+<div class="flow rv">
+<div class="fnode">
+<div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+<h4>AI agents &amp; clients</h4>
+<div class="fsub">Every agent across your org</div>
+<div class="fchips"><span class="fchip">Claude</span><span class="fchip">Cursor</span><span class="fchip">Copilot</span><span class="fchip">Codex</span><span class="fchip">M365</span></div>
 </div>
+<div class="farrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="fnode">
+<div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg></div>
+<h4>Spectis observes</h4>
+<div class="fsub">Read-only, all three planes</div>
+<div class="fchips"><span class="fchip">API</span><span class="fchip">Network</span><span class="fchip">Endpoint</span></div>
 </div>
-<div class="dmain">
-<div class="dmain-h"><h4>Overview</h4><p>Platform-wide AI agent &amp; endpoint observability</p></div>
-<div class="dlbl">Inventory across three planes</div>
-<div class="dstat-row">
-<div class="dcard"><div class="k">Endpoints scanned</div><div class="v v-em">487</div></div>
-<div class="dcard"><div class="k">AI artifacts</div><div class="v v-em2">2,159</div></div>
-<div class="dcard"><div class="k">Cloud + Copilot</div><div class="v v-tx">63</div></div>
-<div class="dcard"><div class="k">High risk</div><div class="v v-warn">58</div></div>
+<div class="farrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="fnode">
+<div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 7.5l3 8M16.5 7.5l-3 8"/></svg></div>
+<h4>Correlate by identity</h4>
+<div class="fsub">One agent, one human, one story</div>
+<div class="fchips"><span class="fchip">username × host × agent_id</span></div>
 </div>
-<div class="dgrid">
-<div class="dcard"><div class="dlbl" style="margin:0 0 9px">Exposure</div><div style="display:flex;gap:16px"><div style="font-size:11.5px;color:var(--ink2)"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#1B7A3D;margin-right:5px"></span>Local <b style="font-family:var(--fd)">1,847</b></div><div style="font-size:11.5px;color:var(--ink2)"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--rust);margin-right:5px"></span>Remote <b style="font-family:var(--fd);color:var(--rust)">312</b></div></div><div style="margin-top:9px;font-size:10.5px;color:var(--rust)">312 reaching external endpoints</div></div>
-<div class="dcard"><div class="dlbl" style="margin:0 0 9px">AI clients</div><div><span class="dchip">VS Code</span><span class="dchip">Cursor</span><span class="dchip">Claude</span><span class="dchip">Codex</span><span class="dchip">M365 Copilot</span></div></div>
-</div>
-<div class="dlbl">Recent activity</div>
-<div class="dcard">
-<div class="drow"><span class="t">14:23</span><span class="dpill ex">execute</span><span style="color:var(--ink2);flex:1">code-assistant</span><span class="dpill ok">success</span></div>
-<div class="drow"><span class="t">14:21</span><span class="dpill ex">validate</span><span style="color:var(--ink2);flex:1">db-query-agent</span><span class="dpill bl">blocked</span></div>
-<div class="drow"><span class="t">14:18</span><span class="dpill ex">sync</span><span style="color:var(--ink2);flex:1">m365-copilot</span><span class="dpill ok">success</span></div>
-</div>
-</div>
+<div class="farrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></div>
+<div class="fnode">
+<div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg></div>
+<h4>Your SIEM &amp; dashboard</h4>
+<div class="fsub">Alerts where your team already works</div>
+<div class="fchips"><span class="fchip">Splunk</span><span class="fchip">Sentinel</span><span class="fchip">Spectis</span></div>
 </div>
 </div>
 </div>
@@ -506,28 +483,28 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <!-- DEPLOY -->
 <section class="section" id="deploy" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
 <div class="shell">
-<div class="rv"><span class="kicker"><span class="num">05</span> Deployment</span></div>
-<h2 class="title rv">Your own <span class="fx">secure bubble</span>.<br>Your data never leaves.</h2>
-<p class="lead rv">Spectis runs as a dedicated, single-tenant deployment isolated for your organization alone — a hardened secure enclave inside your trust boundary. No shared infrastructure, no multi-tenant data mixing, no telemetry shipped to a vendor SaaS.</p>
+<div class="rv"><span class="kicker"><span class="num">05</span> Hosting</span></div>
+<h2 class="title rv">Fully managed.<br><span class="fx">Live in minutes.</span></h2>
+<p class="lead rv">Spectis is hosted, secured, and run by us — nothing for your team to deploy, patch, or babysit. Connect your AI sources, route correlated events to the SIEM you already run, and you're live the same day.</p>
 <div class="split rv">
 <div>
-<h3>An isolated enclave, built for your data</h3>
-<p>Every deployment is dedicated and hardened end to end — encrypted storage, automatic TLS, secrets sealed in your own key store, and private access only. Your telemetry stays within your boundary; the platform stays proprietary to us.</p>
+<h3>Secure by design, minimal by default</h3>
+<p>Your platform runs on dedicated, encrypted, single-tenant infrastructure that we operate and monitor. And because Spectis is data-minimized at the source, the sensitive material never reaches us in the first place — we collect metadata, never your secrets or content.</p>
 <ul class="clist">
-<li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Dedicated &amp; single-tenant</b> — your environment is yours alone, never shared with another customer.</span></li>
-<li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Hardened by default</b> — fail-closed config, TLS 1.3, encryption at rest, least-privilege, no open ingress.</span></li>
-<li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Data sovereignty</b> — your telemetry stays inside your boundary and never reaches a vendor SaaS.</span></li>
+<li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Nothing to run</b> — fully managed and maintained by Spectis; onboarding in minutes, not months.</span></li>
+<li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Secure &amp; isolated</b> — dedicated single-tenant, encrypted at rest and in transit (TLS 1.3); SOC 2 on the roadmap.</span></li>
+<li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Minimal by design</b> — env var names only, never values; no raw commands or file contents. Your SIEM stays the system of record.</span></li>
 </ul>
 </div>
 <div class="term">
-<div style="color:rgba(255,255,255,.55);margin-bottom:14px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#7DF0C8;box-shadow:0 0 8px #7DF0C8"></span>Secure enclave · status</div>
-<div class="row"><span class="cm">Tenancy</span><span class="ok">Dedicated · single-tenant</span></div>
-<div class="row"><span class="cm">Data residency</span><span>Your environment</span></div>
-<div class="row"><span class="cm">Storage</span><span>Encrypted · AES-256</span></div>
-<div class="row"><span class="cm">Transport</span><span>TLS 1.3</span></div>
-<div class="row"><span class="cm">Secrets</span><span>Your key store (KMS)</span></div>
-<div class="row"><span class="cm">Access</span><span>Private · no open SSH</span></div>
-<div style="margin-top:14px;color:#A8E6CF">✓ Isolation verified · telemetry stays in-boundary</div>
+<div style="color:rgba(255,255,255,.55);margin-bottom:14px;display:flex;align-items:center;gap:8px"><span style="width:8px;height:8px;border-radius:50%;background:#7DF0C8;box-shadow:0 0 8px #7DF0C8"></span>Spectis Cloud · status</div>
+<div class="row"><span class="cm">Hosting</span><span class="ok">Fully managed</span></div>
+<div class="row"><span class="cm">Isolation</span><span>Dedicated · single-tenant</span></div>
+<div class="row"><span class="cm">Encryption</span><span>At rest + TLS 1.3</span></div>
+<div class="row"><span class="cm">Telemetry</span><span>Minimized · names only</span></div>
+<div class="row"><span class="cm">System of record</span><span>Your SIEM</span></div>
+<div class="row"><span class="cm">Onboarding</span><span>Same day</span></div>
+<div style="margin-top:14px;color:#A8E6CF">✓ Managed &amp; monitored — nothing for you to run</div>
 </div>
 </div>
 </div>
@@ -540,7 +517,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <h2 class="title rv">Enterprise-grade,<br>from day one.</h2>
 <p class="lead rv">Security, governance, and isolation that satisfy the teams who sign off — without a six-month procurement cycle.</p>
 <div class="feat-grid">
-<div class="feat rv"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Dedicated isolation</h3><p>Your own single-tenant secure enclave — no shared infrastructure, no co-mingled data, ever.</p></div>
+<div class="feat rv"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Dedicated isolation</h3><p>Dedicated single-tenant infrastructure — no shared environments, no co-mingled data, ever.</p></div>
 <div class="feat rv" style="transition-delay:.04s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="12" r="3.2"/><path d="M11 12h10M18 9v6"/></svg></div><h3>SSO, SAML &amp; SCIM</h3><p>Connect your identity provider for single sign-on and automated, policy-driven user provisioning.</p></div>
 <div class="feat rv" style="transition-delay:.08s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 015-5h2M15 12l2 2 4-4"/></svg></div><h3>Granular RBAC &amp; audit</h3><p>Scoped roles and a complete, attributable audit trail for every agent and every human action.</p></div>
 <div class="feat rv"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></svg></div><h3>Compliance-ready</h3><p>Data minimization by design, full audit logging, and GDPR alignment — SOC 2 on the roadmap.</p></div>
@@ -555,7 +532,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 </section>
 
 <!-- SECURITY -->
-<section class="section" id="security">
+<section class="section" id="security" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
 <div class="shell">
 <div class="rv"><span class="kicker"><span class="num">06</span> Security posture</span></div>
 <h2 class="title rv">Built to the standard<br>it holds others to</h2>
@@ -570,7 +547,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 </section>
 
 <!-- ROADMAP -->
-<section class="section" id="roadmap" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<section class="section" id="roadmap">
 <div class="shell">
 <div class="rv"><span class="kicker"><span class="num">08</span> Coming soon</span></div>
 <h2 class="title rv">One platform for observability,<br><span class="fx">compliance</span> &amp; enforcement.</h2>
@@ -656,7 +633,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <a href="mailto:ashraf@bytebunkerlabs.ai" aria-label="Email"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></a>
 </div>
 </div>
-<div class="foot-col"><h5>Product</h5><a href="#platform">Platform</a><a href="#roadmap">Roadmap</a><a href="#enterprise">Enterprise</a><a href="#deploy">Deployment</a><a href="#security">Security</a></div>
+<div class="foot-col"><h5>Product</h5><a href="#platform">Platform</a><a href="#roadmap">Roadmap</a><a href="#enterprise">Enterprise</a><a href="#deploy">Hosting</a><a href="#security">Security</a></div>
 <div class="foot-col"><h5>Company</h5><a href="#research">Research</a><a href="https://zenodo.org/records/19474131">Whitepaper</a><a href="/request-access.html">Request access</a><a href="mailto:ashraf@bytebunkerlabs.ai">Contact</a></div>
 <div class="foot-col"><h5>Legal</h5><a href="/privacy.html">Privacy Policy</a><a href="/terms.html">Terms of Service</a><a href="#security">Security</a></div>
 </div>
