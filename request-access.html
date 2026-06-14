@@ -135,7 +135,12 @@ nav{padding:22px 0;display:flex;align-items:center;justify-content:space-between
 // Submission: builds a pre-filled email to the team so it works with zero backend.
 // To capture submissions directly instead, set FORM_ENDPOINT to a Formspree/Basin
 // URL (https://formspree.io/f/XXXX) and the form will POST there via fetch.
-var FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/your-id"
+// Submissions are delivered by FormSubmit (no signup needed).
+// IMPORTANT one-time step: the first time the form posts to a new address,
+// FormSubmit emails an activation link to that address — click "Activate" once
+// and every future submission lands in the inbox. Prefer Formspree/Web3Forms?
+// Just replace FORM_ENDPOINT with that endpoint (it also expects a JSON POST).
+var FORM_ENDPOINT = "https://formsubmit.co/ajax/ashraf@bytebunkerlabs.ai";
 var CONTACT = "ashraf@bytebunkerlabs.ai";
 
 var form = document.getElementById('accessForm');
@@ -162,7 +167,12 @@ form.addEventListener('submit', function(e){
   }
 
   if(FORM_ENDPOINT){
-    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(data)})
+    var payload={
+      name:data.name, email:data.email, company:data.company,
+      role:data.role||"—", size:data.size||"—", message:data.message||"—",
+      _subject:"Spectis access — "+data.company, _template:"table", _captcha:"false"
+    };
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){ if(r.ok){done(false);} else {emailFallback();} })
       .catch(emailFallback);
   } else {
