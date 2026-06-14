@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Spectis by ByteBunker Labs — End-to-End AI Agent Observability</title>
-<meta name="description" content="Spectis is the only platform that observes AI agents across all three planes — external API, internal network (MCP), and endpoint — and correlates them by identity into your SIEM. Observe, never intercept. Deployed in your own cloud.">
+<meta name="description" content="Spectis is the only platform that observes AI agents across all three planes — external API, internal network (MCP), and endpoint — and correlates them by identity in one platform you control. Observe by default, enforce by choice. Your data stays yours.">
 <meta name="theme-color" content="#FBFAF7">
 <link rel="canonical" href="https://bytebunkerlabs.ai/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bytebunkerlabs.ai/">
 <meta property="og:title" content="Spectis — End-to-End AI Agent Observability">
-<meta property="og:description" content="The only platform that sees every AI agent across all three planes — API, network, and endpoint — and correlates them into your SIEM.">
+<meta property="og:description" content="The only platform that sees every AI agent across all three planes — API, network, and endpoint — and correlates them by identity in one platform you control.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Spectis — End-to-End AI Agent Observability">
-<meta name="twitter:description" content="See every AI agent across every plane. Observe, never intercept. Deployed in your own cloud.">
+<meta name="twitter:description" content="See every AI agent across every plane. Observe by default, enforce by choice. Your data stays yours.">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -96,26 +96,39 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(251,250,2
 .hero-meta span{display:flex;align-items:center;gap:8px}
 .hero-meta span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--emerald2)}
 
-/* hero instrument card */
-.inst{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--sh-lg);overflow:hidden}
-.inst-top{padding:16px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;background:linear-gradient(180deg,#fff,var(--paper))}
-.inst-top .t{font-family:var(--fm);font-size:11.5px;color:var(--ink3);letter-spacing:.04em}
-.inst-live{display:flex;align-items:center;gap:7px;font-family:var(--fm);font-size:11px;color:var(--emerald);text-transform:uppercase;letter-spacing:.08em}
-.inst-live .d{width:7px;height:7px;border-radius:50%;background:var(--emerald2);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(26,143,116,.4)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(26,143,116,0)}}
-.plane-row{display:flex;align-items:center;gap:14px;padding:17px 20px;border-bottom:1px solid var(--line)}
-.plane-row:last-of-type{border-bottom:none}
-.plane-row .px{font-family:var(--fm);font-size:11px;color:var(--ink3);width:26px;flex-shrink:0}
-.plane-row .pmid{flex:1}
-.plane-row .pname{font-weight:600;font-size:14.5px;color:var(--ink)}
-.plane-row .pmeta{font-size:12px;color:var(--ink2);font-family:var(--fm)}
-.plane-row .pright{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
-.plane-row .pcount{font-family:var(--fd);font-weight:700;font-size:15px;color:var(--ink);line-height:1}
-.plane-row .pstat{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;color:var(--emerald);background:var(--mintbg);border:1px solid var(--mintbg2);border-radius:999px;padding:3px 9px;font-family:var(--fb)}
-.plane-row .pstat svg{color:var(--emerald2)}
-.inst-foot{padding:15px 20px;background:var(--mintbg);display:flex;align-items:center;justify-content:space-between;gap:12px}
-.inst-foot .fl{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--forest);font-weight:600}
-.inst-foot .fr{font-family:var(--fm);font-size:11px;color:var(--emerald)}
+/* hero command-center visual */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.hero-viz{position:relative;background:linear-gradient(165deg,#0d3a2a,#06140e);border:1px solid rgba(125,240,200,.16);border-radius:22px;padding:24px;box-shadow:0 44px 100px -34px rgba(11,61,46,.65),0 0 0 1px rgba(125,240,200,.04);overflow:hidden}
+.hero-viz::before{content:'';position:absolute;inset:0;opacity:.55;background-image:radial-gradient(circle at 1px 1px,rgba(125,240,200,.06) 1px,transparent 0);background-size:22px 22px}
+.hero-viz::after{content:'';position:absolute;top:-35%;right:-25%;width:320px;height:320px;background:radial-gradient(circle,rgba(31,216,154,.2),transparent 70%)}
+.hv{position:relative}
+.hv-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.hv-brand{display:flex;align-items:center;gap:9px;font-family:var(--fd);font-weight:700;font-size:13.5px;color:#fff}
+.hv-brand svg{width:24px;height:24px}
+.hv-live{display:flex;align-items:center;gap:6px;font-family:var(--fm);font-size:10px;text-transform:uppercase;letter-spacing:.09em;color:#7DF0C8}
+.hv-live .d{width:7px;height:7px;border-radius:50%;background:#1FD89A;box-shadow:0 0 10px #1FD89A;animation:pulse 2s infinite}
+.hv-stat{display:flex;align-items:flex-end;gap:12px;margin-bottom:5px}
+.hv-stat .big{font-family:var(--fd);font-weight:700;font-size:clamp(40px,6vw,52px);color:#fff;line-height:.9;letter-spacing:-.03em}
+.hv-stat .u{font-size:13px;color:rgba(255,255,255,.6);line-height:1.35;padding-bottom:5px}
+.hv-stat .u b{color:#7DF0C8;font-weight:600}
+.hv-cap{font-size:11.5px;color:rgba(255,255,255,.42);margin-bottom:20px;display:flex;align-items:center;gap:7px}
+.hv-cap::before{content:'';width:5px;height:5px;border-radius:50%;background:#1FD89A}
+.hv-planes{display:flex;flex-direction:column;gap:9px;margin-bottom:16px}
+.hv-plane{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:11px 14px}
+.hv-plane .px{font-family:var(--fm);font-size:10px;color:#7DF0C8;width:20px;flex-shrink:0}
+.hv-plane .pn{flex:1;min-width:0}
+.hv-plane .pn b{display:block;font-size:13px;color:#eaf7f0;font-weight:600}
+.hv-plane .pn em{font-style:normal;font-family:var(--fm);font-size:10.5px;color:rgba(255,255,255,.4)}
+.hv-bars{display:flex;gap:2.5px;align-items:flex-end;height:18px}
+.hv-bars i{width:3px;background:#1FD89A;border-radius:1px;opacity:.85;animation:eq 1.5s ease-in-out infinite}
+.hv-bars i:nth-child(2){animation-delay:.18s}.hv-bars i:nth-child(3){animation-delay:.36s}.hv-bars i:nth-child(4){animation-delay:.54s}.hv-bars i:nth-child(5){animation-delay:.72s}
+@keyframes eq{0%,100%{height:5px}50%{height:17px}}
+.hv-ck{color:#1FD89A;flex-shrink:0}
+.hv-core{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(31,216,154,.1);border:1px solid rgba(31,216,154,.26);border-radius:12px;padding:13px 15px}
+.hv-core .l{font-size:12.5px;color:#fff;font-weight:600;display:flex;align-items:center;gap:8px}
+.hv-core .l svg{color:#7DF0C8}
+.hv-core .r{font-family:var(--fm);font-size:10.5px;color:#7DF0C8;white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.hv-bars i{animation:none;height:11px}}
 
 /* stats + compliance bar */
 .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper2)}
@@ -124,10 +137,9 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(251,250,2
 .stat:last-child{border-right:none}
 .stat .num{font-family:var(--fd);font-weight:700;font-size:clamp(22px,3vw,30px);color:var(--forest);line-height:1;letter-spacing:-.02em}
 .stat .lbl{font-size:12px;color:var(--ink2);margin-top:7px}
-.stat.badge{display:flex;align-items:center;gap:10px;text-align:left}
-.stat.badge .bic{width:32px;height:32px;border-radius:9px;background:var(--mintbg);border:1px solid var(--mintbg2);color:var(--emerald2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.stat.badge .bt{font-family:var(--fd);font-weight:700;font-size:14px;color:var(--ink);line-height:1.2}
-.stat.badge .bt span{display:block;font-family:var(--fb);font-weight:400;font-size:11px;color:var(--ink3);margin-top:2px}
+.stat.badge{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line2);border-radius:999px;background:var(--card);box-shadow:var(--sh-sm)}
+.stat.badge .bic{display:flex;align-items:center;color:var(--emerald2);flex-shrink:0}
+.stat.badge .bt{font-family:var(--fb);font-weight:600;font-size:13px;color:var(--ink);white-space:nowrap}
 @media(max-width:760px){.stat{border-right:none;padding:8px 14px}.stats-i{gap:14px 8px}}
 
 /* problem planes */
@@ -258,8 +270,6 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(251,250,2
 .rtag.soon{background:var(--paper2);color:var(--ink3);border:1px solid var(--line2)}
 .road h3{font-family:var(--fd);font-weight:700;font-size:18px;letter-spacing:-.015em;margin-bottom:10px}
 .road p{font-size:14px;line-height:1.6;color:var(--ink2);margin-bottom:16px}
-.road-code{margin-top:auto;font-family:var(--fm);font-size:11.5px;line-height:1.85;background:var(--forest);color:rgba(255,255,255,.82);border-radius:11px;padding:14px 16px;overflow-x:auto}
-.road-code .cm{color:rgba(255,255,255,.4)}.road-code .kw{color:#7DF0C8}
 .road-logos{margin-top:auto;font-family:var(--fm);font-size:11.5px;color:var(--emerald);background:var(--mintbg);border:1px solid var(--mintbg2);border-radius:11px;padding:12px 14px;line-height:1.7}
 .road-foot{margin-top:36px;text-align:center;font-family:var(--fd);font-size:clamp(17px,2.3vw,23px);font-weight:700;color:var(--ink);letter-spacing:-.015em}
 .road-foot b{color:var(--emerald2)}
@@ -344,19 +354,25 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="rv in">
 <span class="pill"><span class="dot"></span>End-to-end AI agent observability</span>
 <h1>Every AI agent. Every plane.<br><span class="it">One source of truth.</span></h1>
-<p class="hero-sub">AI agents act across three planes no single tool can see. Spectis is the <b>only</b> platform that observes all three — external API, internal network, and endpoint — correlates them by identity, and ships the truth to your SIEM. <b>It observes, never intercepts.</b></p>
+<p class="hero-sub">AI agents act across three planes no single tool can see. Spectis is the <b>only</b> platform that observes all three — external API, internal network, and endpoint — correlates them by identity, and holds it all in <b>one platform you control</b>. <b>Observe by default — enforce by choice.</b></p>
 <div class="hero-cta">
 <a href="/request-access.html" class="btn btn-p">Request access <span class="ar">→</span></a>
 <a href="#platform" class="btn btn-s">See how it works</a>
 </div>
 </div>
 <div class="rv in" style="transition-delay:.1s">
-<div class="inst">
-<div class="inst-top"><span class="t">Live coverage</span><span class="inst-live"><span class="d"></span>Live</span></div>
-<div class="plane-row"><span class="px">P1</span><div class="pmid"><div class="pname">External API</div><div class="pmeta">OpenAI · Anthropic · Bedrock</div></div><div class="pright"><div class="pcount">1,204</div><span class="pstat"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div></div>
-<div class="plane-row"><span class="px">P2</span><div class="pmid"><div class="pname">Internal network</div><div class="pmeta">MCP · tool calls · data</div></div><div class="pright"><div class="pcount">892</div><span class="pstat"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div></div>
-<div class="plane-row"><span class="px">P3</span><div class="pmid"><div class="pname">Endpoint</div><div class="pmeta">configs · skills · processes</div></div><div class="pright"><div class="pcount">2,159</div><span class="pstat"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div></div>
-<div class="inst-foot"><span class="fl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5 12l4-4M19 12l-4 4"/></svg>Correlated by identity</span><span class="fr">3,412 events joined today</span></div>
+<div class="hero-viz">
+<div class="hv">
+<div class="hv-top"><span class="hv-brand"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" rx="20" fill="rgba(255,255,255,.07)"/><path d="M26 14 L26 52 L40 62 L54 52 L54 14" stroke="#1FD89A" stroke-width="3.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Spectis</span><span class="hv-live"><span class="d"></span>Live</span></div>
+<div class="hv-stat"><span class="big">4,255</span><span class="u">events <b>correlated</b> today — across all three planes</span></div>
+<div class="hv-cap">Held in one platform · no third-party data sharing</div>
+<div class="hv-planes">
+<div class="hv-plane"><span class="px">P1</span><span class="pn"><b>External API</b><em>OpenAI · Anthropic · Bedrock</em></span><span class="hv-bars"><i></i><i></i><i></i><i></i><i></i></span><svg class="hv-ck" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+<div class="hv-plane"><span class="px">P2</span><span class="pn"><b>Internal network</b><em>MCP · tool calls · data</em></span><span class="hv-bars"><i></i><i></i><i></i><i></i><i></i></span><svg class="hv-ck" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+<div class="hv-plane"><span class="px">P3</span><span class="pn"><b>Endpoint</b><em>configs · skills · processes</em></span><span class="hv-bars"><i></i><i></i><i></i><i></i><i></i></span><svg class="hv-ck" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></div>
+</div>
+<div class="hv-core"><span class="l"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5 12l4-4M19 12l-4 4"/></svg>Correlated by identity</span><span class="r">username × host × agent_id</span></div>
+</div>
 </div>
 </div>
 </div>
@@ -367,8 +383,8 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="stat"><div class="num">3</div><div class="lbl">Planes observed</div></div>
 <div class="stat"><div class="num">21</div><div class="lbl">AI clients covered</div></div>
 <div class="stat"><div class="num">Zero</div><div class="lbl">Latency added</div></div>
-<div class="stat badge"><div class="bic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="bt">GDPR + CCPA<span>aligned</span></div></div>
-<div class="stat badge"><div class="bic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><div class="bt">SOC 2<span>in progress</span></div></div>
+<div class="stat badge"><span class="bic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="bt">GDPR + CCPA aligned</span></div>
+<div class="stat badge"><span class="bic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span><span class="bt">SOC 2 · in progress</span></div>
 </div>
 </div>
 
@@ -377,7 +393,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="shell">
 <div class="rv"><span class="kicker"><span class="num">01</span> The blind spot</span></div>
 <h2 class="title rv">No single tool sees all three<br>planes of AI agent activity</h2>
-<p class="lead rv">AI agents reach across external APIs, internal networks, and local endpoints. SASE sees the first. MCP gateways see part of the second. Code-level scanners catch a sliver of the third. Nobody sees them together — and that gap is where shadow agents live.</p>
+<p class="lead rv">AI agents reach across external APIs, internal networks, and local endpoints. Secure Access Service Edge (SASE) platforms see the first. MCP gateways see part of the second. Code-level scanners catch a sliver of the third. Nobody sees them together — and that gap is where shadow agents live.</p>
 <div class="planes">
 <div class="pcard rv">
 <span class="pn">PLANE 01</span>
@@ -431,7 +447,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="shell">
 <div class="rv"><span class="kicker"><span class="num">03</span> The platform</span></div>
 <h2 class="title rv">See every agent. Know every<br>action. Trust every outcome.</h2>
-<p class="lead rv">A telemetry and correlation layer — not a gateway, not a proxy. Nine capabilities, one shared identity graph, shipped to the SIEM you already run.</p>
+<p class="lead rv">A telemetry and correlation layer — not a gateway, not a proxy. Nine capabilities, one shared identity graph, held and analyzed in one platform you control.</p>
 <div class="feat-grid">
 <div class="feat rv"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10M9 8l-2 2 2 2M15 8l2 2-2 2"/></svg></div><h3>Endpoint agent</h3><p>Scans MCP configs across 21 AI clients — VS Code, Cursor, Claude, Codex, Windsurf, Zed, JetBrains and more — finds running servers, probes tool inventories, surfaces shadow agents. macOS · Windows · Linux.</p></div>
 <div class="feat rv" style="transition-delay:.04s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M7.5 7.5l3 8M16.5 7.5l-3 8"/></svg></div><h3>AI inventory + exposure graph</h3><p>Every artifact, runtime, and the inferred flows between them. See what an agent can actually reach — endpoint → cloud model, repo → production — scored for blast radius.</p></div>
@@ -440,7 +456,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="feat rv" style="transition-delay:.04s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6A4.6 4.6 0 0019 4.8 4.3 4.3 0 0018.9 1S17.7.6 15 2.5a13 13 0 00-7 0C5.3.6 4.1 1 4.1 1A4.3 4.3 0 004 4.8 4.6 4.6 0 003 8c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V20"/></svg></div><h3>Supply-chain scanner</h3><p>Crawls GitHub orgs for AI artifacts in source — agent definitions, skills, prompts, leaked tool grants — before they ship to production.</p></div>
 <div class="feat rv" style="transition-delay:.08s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Agent identity + registry</h3><p>Every agent gets a registered, scoped identity; every action is attributed to both the agent and the human who triggered it — the full delegation chain, audited.</p></div>
 <div class="feat rv"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><h3>Safety LLM</h3><p>Async behavioral analysis that catches what rules miss — reconnaissance, exfiltration through read-only access, prompt injection, and privilege creep across sessions.</p></div>
-<div class="feat rv" style="transition-delay:.04s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2"/></svg></div><h3>SIEM-native correlation</h3><p>Structured telemetry to Splunk HEC, Microsoft Sentinel, syslog/CEF and webhooks — joined across endpoint, identity, tool calls and network by shared keys.</p></div>
+<div class="feat rv" style="transition-delay:.04s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2"/></svg></div><h3>Your AI system of record</h3><p>Everything is correlated and retained in Spectis — one source of truth you own. We stream only Spectis's own audit log to your SIEM; your correlated intelligence never leaves the platform.</p></div>
 <div class="feat rv" style="transition-delay:.08s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6l1 4-2 2 2 2-1 4H9l-1-4 2-2-2-2z"/><circle cx="12" cy="12" r="1.5"/></svg></div><h3>Risk classification engine</h3><p>A deterministic rule pack plus an optional LLM tier scores every artifact — benign, enterprise, suspicious, harmful — with a rationale you can audit.</p></div>
 </div>
 <div class="arch rv">
@@ -460,7 +476,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 </div>
 <div class="arch-flow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
 <div class="arch-row">
-<span class="arch-chip">Splunk</span><span class="arch-chip">Sentinel</span><span class="arch-chip">Defender</span><span class="arch-chip">Spectis dashboard</span>
+<span class="arch-chip">Spectis dashboard</span><span class="arch-chip">Analytics</span><span class="arch-chip">Retention</span><span class="arch-chip">Audit log → your SIEM</span>
 </div>
 </div>
 </div>
@@ -470,8 +486,8 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <section class="section" style="padding-top:0">
 <div class="shell">
 <div class="rv"><span class="kicker"><span class="num">04</span> How it works</span></div>
-<h2 class="title rv">From every agent to your SIEM —<br><span class="fx">correlated</span> in one view.</h2>
-<p class="lead rv">Spectis observes across all three planes, joins everything by identity, and delivers correlated intelligence to the tools you already run — nothing in the request path, zero latency.</p>
+<h2 class="title rv">From scattered agents to<br><span class="fx">one source of truth.</span></h2>
+<p class="lead rv">Spectis observes across all three planes, joins everything by identity, and holds it in one platform you control — nothing in the request path, zero latency, no data handed to third parties.</p>
 <div class="flow rv">
 <div class="fnode">
 <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
@@ -496,9 +512,9 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="farrow"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg></div>
 <div class="fnode">
 <div class="fic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg></div>
-<h4>Your SIEM &amp; dashboard</h4>
-<div class="fsub">Alerts where your team already works</div>
-<div class="fchips"><span class="fchip">Splunk</span><span class="fchip">Sentinel</span><span class="fchip">Spectis</span></div>
+<h4>See, retain &amp; govern</h4>
+<div class="fsub">Your source of truth — held in Spectis</div>
+<div class="fchips"><span class="fchip">Dashboard</span><span class="fchip">Analytics</span><span class="fchip">Audit log → SIEM</span></div>
 </div>
 </div>
 </div>
@@ -509,7 +525,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="shell">
 <div class="rv"><span class="kicker"><span class="num">05</span> Hosting</span></div>
 <h2 class="title rv">Fully managed.<br><span class="fx">Live in minutes.</span></h2>
-<p class="lead rv">Spectis is hosted, secured, and run by us — nothing for your team to deploy, patch, or babysit. Connect your AI sources, route correlated events to the SIEM you already run, and you're live the same day.</p>
+<p class="lead rv">Spectis is hosted, secured, and run by us — nothing for your team to deploy, patch, or babysit. Connect your AI sources, see and govern everything in one platform, and you're live the same day.</p>
 <div class="split rv">
 <div>
 <h3>Secure by design, minimal by default</h3>
@@ -517,7 +533,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <ul class="clist">
 <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Nothing to run</b> — fully managed and maintained by Spectis; onboarding in minutes, not months.</span></li>
 <li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Secure &amp; isolated</b> — dedicated single-tenant, encrypted at rest and in transit (TLS 1.3); SOC 2 on the roadmap.</span></li>
-<li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Minimal by design</b> — env var names only, never values; no raw commands or file contents. Your SIEM stays the system of record.</span></li>
+<li><span class="ck"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Minimal by design</b> — env var names only, never values; no raw commands or file contents. Spectis is your system of record; only Spectis audit logs are streamed to your SIEM.</span></li>
 </ul>
 </div>
 <div class="term">
@@ -526,7 +542,8 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="row"><span class="cm">Isolation</span><span>Dedicated · single-tenant</span></div>
 <div class="row"><span class="cm">Encryption</span><span>At rest + TLS 1.3</span></div>
 <div class="row"><span class="cm">Telemetry</span><span>Minimized · names only</span></div>
-<div class="row"><span class="cm">System of record</span><span>Your SIEM</span></div>
+<div class="row"><span class="cm">System of record</span><span class="ok">Spectis</span></div>
+<div class="row"><span class="cm">SIEM export</span><span>Audit logs only</span></div>
 <div class="row"><span class="cm">Onboarding</span><span>Same day</span></div>
 <div style="margin-top:14px;color:#A8E6CF">✓ Managed &amp; monitored — nothing for you to run</div>
 </div>
@@ -545,7 +562,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="feat rv" style="transition-delay:.04s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8" cy="12" r="3.2"/><path d="M11 12h10M18 9v6"/></svg></div><h3>SSO, SAML &amp; SCIM</h3><p>Connect your identity provider for single sign-on and automated, policy-driven user provisioning.</p></div>
 <div class="feat rv" style="transition-delay:.08s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a5 5 0 015-5h2M15 12l2 2 4-4"/></svg></div><h3>Granular RBAC &amp; audit</h3><p>Scoped roles and a complete, attributable audit trail for every agent and every human action.</p></div>
 <div class="feat rv"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 14l2 2 4-4"/></svg></div><h3>Compliance-ready</h3><p>Data minimization by design, full audit logging, and GDPR alignment — SOC 2 on the roadmap.</p></div>
-<div class="feat rv" style="transition-delay:.04s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2"/></svg></div><h3>SIEM &amp; SOC integration</h3><p>Splunk, Sentinel, CEF and webhooks — correlated telemetry shipped to the stack you already run.</p></div>
+<div class="feat rv" style="transition-delay:.04s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h10"/><circle cx="19" cy="18" r="2"/></svg></div><h3>SIEM audit-log streaming</h3><p>Stream Spectis's audit trail to Splunk, Sentinel, CEF or webhooks for compliance — while your correlated intelligence stays in Spectis.</p></div>
 <div class="feat rv" style="transition-delay:.08s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 14a8 8 0 0116 0M4 14v3a2 2 0 002 2h1v-5H6a2 2 0 00-2 2zm16 0v3a2 2 0 01-2 2h-1v-5h1a2 2 0 012 2z"/></svg></div><h3>Dedicated support &amp; SLA</h3><p>White-glove onboarding, a named technical contact, and enterprise service-level agreements.</p></div>
 </div>
 <div class="ent-cta rv">
@@ -560,9 +577,9 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="shell">
 <div class="rv"><span class="kicker"><span class="num">06</span> Security posture</span></div>
 <h2 class="title rv">Built to the standard<br>it holds others to</h2>
-<p class="lead rv">A security product has to be the most secure thing in the room. Spectis is engineered that way — minimal data, modern crypto, zero interception.</p>
+<p class="lead rv">A security product has to be the most secure thing in the room. Spectis is engineered that way — minimal data, modern crypto, least privilege, and enforcement only where you choose.</p>
 <div class="sec-grid">
-<div class="sec-item rv"><div class="si"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div><h4>Observe, never intercept</h4><p>Zero inline latency, no conflict with SASE or proxy infrastructure. Telemetry only — never a man-in-the-middle.</p></div>
+<div class="sec-item rv"><div class="si"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></div><h4>Observe by default</h4><p>Observability adds zero inline latency and never touches the request path — no conflict with your SASE or proxy stack. Enforcement intercepts only what you choose to block.</p></div>
 <div class="sec-item rv" style="transition-delay:.05s"><div class="si"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg></div><h4>Data minimization</h4><p>Env var <i>names</i> only, never values. No raw command lines. No file contents unless explicitly flagged.</p></div>
 <div class="sec-item rv" style="transition-delay:.1s"><div class="si"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Zero-trust agent comms</h4><p>TLS 1.3, Ed25519-signed commands with replay protection, short-lived agent identities. <code>Argon2id</code> at rest.</p></div>
 <div class="sec-item rv" style="transition-delay:.15s"><div class="si"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div><h4>Auditable by design</h4><p>Every action attributed to both agent and human. Inspectable verdicts, full audit trail, evidence per alert.</p></div>
@@ -580,8 +597,8 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="road rv">
 <div class="road-h"><div class="road-ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><div class="road-tags"><span class="rtag now">MCP engine live</span><span class="rtag soon">App SDK soon</span></div></div>
 <h3>Policy &amp; enforcement engine</h3>
-<p>Decide what every agent can and can't do. Hooks for Claude, Codex, and VS Code today, plus the MCP policy engine. Coming: a drop-in SDK that brings the same control — and prompt-injection detection — to your production apps.</p>
-<div class="road-code"><span class="cm"># a few lines, in any app</span><br><span class="kw">from</span> spectis.policy <span class="kw">import</span> guard<br>guard.detect_injection(prompt)<br>guard.enforce(agent, action)</div>
+<p>Intercept and block non-compliant agents, skills, and tool calls in real time. Hooks for Claude, Codex, and VS Code today, plus the MCP policy engine. Coming: a drop-in SDK that brings the same enforcement — and prompt-injection detection — to your production apps.</p>
+<div class="road-logos">Prompt injection · PII · policy violations · real-time block</div>
 </div>
 <div class="road rv" style="transition-delay:.06s">
 <div class="road-h"><div class="road-ic"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5M4 19h16M8 16l3-4 3 2 4-6"/></svg></div><div class="road-tags"><span class="rtag soon">Coming soon</span></div></div>
@@ -637,7 +654,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="cta-i">
 <div class="cta-c">
 <h2 class="rv">Built for the <span class="it">agentic era</span></h2>
-<p class="rv">Bring end-to-end agent observability to your enterprise. Deployed in your own cloud, correlated into the SIEM you already run.</p>
+<p class="rv">Bring end-to-end agent observability to your enterprise — held, correlated, and governed in one platform you control.</p>
 <div class="cta-btns rv">
 <a href="/request-access.html" class="btn btn-w">Request access <span class="ar">→</span></a>
 <a href="#research" class="btn btn-g">Read the research</a>
@@ -651,7 +668,7 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="foot-i">
 <div class="foot-b">
 <a href="#top" class="logo"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="width:30px;height:30px"><rect width="80" height="80" rx="18" fill="#0B3D2E"/><path d="M26 12 L26 52 L40 62 L54 52 L54 12" stroke="#1FD89A" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Spectis</b></a>
-<p>End-to-end observability for enterprise AI agents. Observe, never intercept.</p>
+<p>End-to-end observability for enterprise AI agents. Observe by default, enforce by choice.</p>
 <div class="foot-social">
 <a href="https://x.com/bytebunkerlabs" aria-label="X (Twitter)"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
 <a href="mailto:ashraf@bytebunkerlabs.ai" aria-label="Email"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg></a>
