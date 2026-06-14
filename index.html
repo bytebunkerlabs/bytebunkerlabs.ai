@@ -657,8 +657,18 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 </div>
 <script>
 (function(){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -7% 0px'});
-  document.querySelectorAll('.rv').forEach(function(el){if(!el.classList.contains('in'))io.observe(el);});
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  function show(e){e.classList.add('in');}
+  if(!('IntersectionObserver' in window)){els.forEach(show);return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{threshold:0,rootMargin:'0px 0px -20px 0px'});
+  els.forEach(function(e){io.observe(e);});
+  // Safety net: reveal anything already on-screen so bottom-of-page elements
+  // (e.g. the CTA buttons) never stay stuck hidden once fully scrolled.
+  function sweep(){els.forEach(function(e){if(!e.classList.contains('in')&&e.getBoundingClientRect().top<window.innerHeight-20){show(e);io.unobserve(e);}});}
+  window.addEventListener('scroll',sweep,{passive:true});
+  window.addEventListener('resize',sweep);
+  window.addEventListener('load',sweep);
+  sweep();
 })();
 </script>
 </body>
