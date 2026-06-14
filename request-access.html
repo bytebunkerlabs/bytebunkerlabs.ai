@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Request access — Spectis by ByteBunker Labs</title>
+<meta name="description" content="Request access to Spectis — end-to-end AI agent observability, deployed in your own cloud.">
+<meta name="theme-color" content="#FBFAF7">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='18' fill='%230B3D2E'/%3E%3Cpath d='M26 12 L26 52 L40 62 L54 52 L54 12' stroke='%231FD89A' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF7;--paper2:#F4F3EE;--card:#FFFFFF;--ink:#16221C;--ink2:#55655D;--ink3:#8A968F;
+  --line:#E7E8E2;--line2:#D8DAD2;--forest:#0B3D2E;--forest2:#0E5440;--emerald:#15775F;--emerald2:#1A8F74;
+  --mintbg:#EDF5F0;--mintbg2:#E2EFE8;--rust:#B4451F;
+  --fd:'Fraunces',Georgia,serif;--fb:'Hanken Grotesk',system-ui,sans-serif;--fm:'JetBrains Mono',monospace;
+  --sh-sm:0 1px 2px rgba(16,40,30,.05);--sh-md:0 12px 28px -12px rgba(16,40,30,.16),0 2px 6px rgba(16,40,30,.05);
+  --sh-lg:0 40px 80px -36px rgba(11,61,46,.32),0 8px 24px -12px rgba(16,40,30,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.6;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.6;
+  background-image:radial-gradient(circle at 1px 1px,rgba(16,40,30,.05) 1px,transparent 0);background-size:30px 30px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,#000,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 0%,#000,transparent 75%)}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--mintbg2);color:var(--forest)}
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 32px}
+nav{padding:22px 0;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--fd);font-weight:600;font-size:18px;color:var(--ink)}
+.logo svg{width:32px;height:32px;border-radius:8px}
+.logo span{color:var(--ink3);font-family:var(--fb);font-size:12px;font-weight:500;border-left:1px solid var(--line2);padding-left:11px}
+.back{font-size:14px;color:var(--ink2);display:flex;align-items:center;gap:7px;font-weight:500;transition:color .18s}
+.back:hover{color:var(--forest)}
+.grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start;padding:48px 0 80px}
+.intro{position:sticky;top:40px}
+.kick{font-family:var(--fm);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--emerald);margin-bottom:18px}
+.intro h1{font-family:var(--fd);font-optical-sizing:auto;font-weight:500;font-size:clamp(30px,4.4vw,44px);line-height:1.05;letter-spacing:-.02em;margin-bottom:18px}
+.intro h1 .it{font-style:italic;color:var(--emerald2)}
+.intro p{font-size:16.5px;line-height:1.65;color:var(--ink2);max-width:380px;margin-bottom:30px}
+.intro ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.intro li{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:var(--ink2)}
+.intro li b{color:var(--ink);font-weight:600}
+.intro .ck{flex-shrink:0;width:22px;height:22px;border-radius:7px;background:var(--mintbg);color:var(--emerald2);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.intro .direct{margin-top:30px;font-size:13.5px;color:var(--ink3);font-family:var(--fm)}
+.intro .direct a{color:var(--emerald);border-bottom:1px solid var(--mintbg2)}
+
+.formcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:38px;box-shadow:var(--sh-lg)}
+.formcard h2{font-family:var(--fd);font-weight:600;font-size:22px;margin-bottom:6px;letter-spacing:-.01em}
+.formcard .sub{font-size:14px;color:var(--ink2);margin-bottom:26px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:7px}
+.field label .req{color:var(--rust);font-weight:400}
+.field .opt{color:var(--ink3);font-weight:400}
+.field input,.field select,.field textarea{width:100%;font-family:var(--fb);font-size:14.5px;color:var(--ink);background:var(--paper);border:1px solid var(--line2);border-radius:10px;padding:12px 14px;transition:.18s;outline:none}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink3)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--emerald2);background:#fff;box-shadow:0 0 0 3px rgba(26,143,116,.12)}
+.field textarea{resize:vertical;min-height:88px}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238A968F' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field.err input,.field.err select{border-color:var(--rust);box-shadow:0 0 0 3px rgba(180,69,31,.1)}
+.field .msg{font-size:11.5px;color:var(--rust);margin-top:5px;display:none}
+.field.err .msg{display:block}
+.submit{width:100%;font-family:var(--fb);font-weight:600;font-size:15.5px;color:#fff;background:var(--forest);border:none;border-radius:11px;padding:15px;cursor:pointer;transition:.2s;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:9px}
+.submit:hover{background:var(--forest2);box-shadow:var(--sh-md);transform:translateY(-1px)}
+.formnote{font-size:11.5px;color:var(--ink3);text-align:center;margin-top:16px;line-height:1.5}
+.success{display:none;text-align:center;padding:30px 10px}
+.success.show{display:block}
+.success .ic{width:60px;height:60px;border-radius:50%;background:var(--mintbg);color:var(--emerald2);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.success h2{font-family:var(--fd);font-weight:600;font-size:24px;margin-bottom:10px}
+.success p{font-size:15px;color:var(--ink2);max-width:340px;margin:0 auto 22px;line-height:1.55}
+.success a{font-size:14px;color:var(--emerald);font-weight:600}
+.formbody.hide{display:none}
+@media(max-width:820px){.grid{grid-template-columns:1fr;gap:36px;padding:32px 0 60px}.intro{position:static}.intro p{max-width:none}.row2{grid-template-columns:1fr}}
+@media(max-width:560px){.wrap{padding:0 20px}.formcard{padding:26px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+<a href="/" class="logo"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"><rect width="80" height="80" rx="18" fill="#0B3D2E"/><path d="M26 12 L26 52 L40 62 L54 52 L54 12" stroke="#1FD89A" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Spectis</b><span>by ByteBunker Labs</span></a>
+<a href="/" class="back"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>Back to site</a>
+</nav>
+
+<div class="grid">
+<div class="intro">
+<div class="kick">Request access</div>
+<h1>Bring Spectis to <span class="it">your</span> enterprise.</h1>
+<p>Tell us a little about your environment and we'll get you set up with a single-tenant deployment in your own cloud.</p>
+<ul>
+<li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Deployed in your cloud</b> — your telemetry never leaves your account.</span></li>
+<li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Up and running fast</b> — one template, minutes to live.</span></li>
+<li><span class="ck"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span><span><b>Talk to the team</b> — a real engineer walks you through it.</span></li>
+</ul>
+<div class="direct">Prefer email? <a href="mailto:ashraf@bytebunkerlabs.ai?subject=Spectis%20access">ashraf@bytebunkerlabs.ai</a></div>
+</div>
+
+<div class="formcard">
+<div class="formbody" id="formbody">
+<h2>Request access</h2>
+<p class="sub">No spam. We'll reply within one business day.</p>
+<form id="accessForm" novalidate>
+<div class="row2">
+<div class="field"><label for="name">Full name <span class="req">*</span></label><input id="name" name="name" type="text" placeholder="Jane Doe" required><div class="msg">Please enter your name.</div></div>
+<div class="field"><label for="email">Work email <span class="req">*</span></label><input id="email" name="email" type="email" placeholder="jane@company.com" required><div class="msg">Please enter a valid work email.</div></div>
+</div>
+<div class="row2">
+<div class="field"><label for="company">Company <span class="req">*</span></label><input id="company" name="company" type="text" placeholder="Acme Corp" required><div class="msg">Please enter your company.</div></div>
+<div class="field"><label for="role">Your role <span class="opt">(optional)</span></label><input id="role" name="role" type="text" placeholder="CISO, Security Eng, Platform…"></div>
+</div>
+<div class="field"><label for="size">Approx. endpoints / AI users <span class="opt">(optional)</span></label>
+<select id="size" name="size"><option value="">Select a range</option><option>Under 100</option><option>100–500</option><option>500–2,000</option><option>2,000–10,000</option><option>10,000+</option></select></div>
+<div class="field"><label for="message">What are you trying to solve? <span class="opt">(optional)</span></label><textarea id="message" name="message" placeholder="Shadow AI agents, Copilot governance, SIEM correlation…"></textarea></div>
+<button type="submit" class="submit">Request access <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+<div class="formnote">By requesting access you agree to be contacted about Spectis. Your details are used only to respond to your request.</div>
+</form>
+</div>
+<div class="success" id="success">
+<div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12l5 5L20 7"/></svg></div>
+<h2>Request received</h2>
+<p id="successMsg">Thanks — your email client should have opened with your request. Send it and we'll be in touch within one business day.</p>
+<a href="/">← Back to site</a>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// Submission: builds a pre-filled email to the team so it works with zero backend.
+// To capture submissions directly instead, set FORM_ENDPOINT to a Formspree/Basin
+// URL (https://formspree.io/f/XXXX) and the form will POST there via fetch.
+var FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/your-id"
+var CONTACT = "ashraf@bytebunkerlabs.ai";
+
+var form = document.getElementById('accessForm');
+function fail(id){var f=document.getElementById(id).closest('.field');f.classList.add('err');}
+function clearErr(){document.querySelectorAll('.field.err').forEach(function(f){f.classList.remove('err');});}
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  clearErr();
+  var name=form.name.value.trim(), email=form.email.value.trim(), company=form.company.value.trim();
+  var ok=true;
+  if(!name){fail('name');ok=false;}
+  if(!email||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){fail('email');ok=false;}
+  if(!company){fail('company');ok=false;}
+  if(!ok){return;}
+
+  var data={name:name,email:email,company:company,role:form.role.value.trim(),size:form.size.value,message:form.message.value.trim()};
+
+  function done(viaEmail){
+    document.getElementById('formbody').classList.add('hide');
+    var s=document.getElementById('success'); s.classList.add('show');
+    if(!viaEmail){document.getElementById('successMsg').textContent="Thanks — we've received your request and will be in touch within one business day.";}
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  if(FORM_ENDPOINT){
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify(data)})
+      .then(function(r){ if(r.ok){done(false);} else {emailFallback();} })
+      .catch(emailFallback);
+  } else {
+    emailFallback();
+  }
+
+  function emailFallback(){
+    var body="Name: "+data.name+"\nWork email: "+data.email+"\nCompany: "+data.company
+      +"\nRole: "+(data.role||"—")+"\nSize: "+(data.size||"—")+"\n\n"+(data.message||"");
+    var url="mailto:"+CONTACT+"?subject="+encodeURIComponent("Spectis access — "+data.company)+"&body="+encodeURIComponent(body);
+    window.location.href=url;
+    done(true);
+  }
+});
+</script>
+</body>
+</html>
