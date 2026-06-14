@@ -109,12 +109,13 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(251,250,2
 .plane-row .pmid{flex:1}
 .plane-row .pname{font-weight:600;font-size:14.5px;color:var(--ink)}
 .plane-row .pmeta{font-size:12px;color:var(--ink2);font-family:var(--fm)}
-.plane-row .pstat{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--emerald);font-family:var(--fb)}
+.plane-row .pright{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex-shrink:0}
+.plane-row .pcount{font-family:var(--fd);font-weight:700;font-size:15px;color:var(--ink);line-height:1}
+.plane-row .pstat{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;color:var(--emerald);background:var(--mintbg);border:1px solid var(--mintbg2);border-radius:999px;padding:3px 9px;font-family:var(--fb)}
 .plane-row .pstat svg{color:var(--emerald2)}
 .inst-foot{padding:15px 20px;background:var(--mintbg);display:flex;align-items:center;justify-content:space-between;gap:12px}
 .inst-foot .fl{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--forest);font-weight:600}
 .inst-foot .fr{font-family:var(--fm);font-size:11px;color:var(--emerald)}
-.conn-line{height:1px;background:repeating-linear-gradient(90deg,var(--emerald2) 0 6px,transparent 6px 12px);opacity:.4;margin:0 20px}
 
 /* logos / trust */
 .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper2)}
@@ -161,10 +162,25 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(251,250,2
 .feat h3 .new{font-family:var(--fm);font-size:9px;letter-spacing:.04em;color:#fff;background:var(--emerald2);padding:2px 6px;border-radius:4px;font-weight:500;text-transform:uppercase}
 .feat p{font-size:13.5px;line-height:1.6;color:var(--ink2)}
 
-/* architecture (light) */
-.arch{margin-top:48px;background:var(--forest);border-radius:16px;padding:38px;overflow-x:auto;box-shadow:var(--sh-lg)}
-.arch pre{font-family:var(--fm);font-size:12.5px;line-height:1.75;white-space:pre;color:rgba(255,255,255,.62)}
-.arch .h{color:#7DF0C8;font-weight:500}.arch .a{color:#A8E6CF}.arch .d{color:rgba(255,255,255,.34)}
+/* architecture diagram */
+.arch{margin-top:48px;background:var(--forest);border-radius:20px;padding:clamp(26px,4vw,42px);box-shadow:var(--sh-lg);position:relative;overflow:hidden}
+.arch::before{content:'';position:absolute;inset:0;opacity:.5;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.05) 1px,transparent 0);background-size:24px 24px}
+.arch>*{position:relative}
+.arch-cap{font-family:var(--fm);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);text-align:center;margin-bottom:14px}
+.arch-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.arch-chip{font-family:var(--fb);font-size:12.5px;font-weight:500;color:#eaf7f0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:9px;padding:8px 14px}
+.arch-flow{display:flex;justify-content:center;align-items:center;height:36px;color:rgba(125,240,200,.6)}
+.arch-engine{background:rgba(255,255,255,.04);border:1px solid rgba(125,240,200,.28);border-radius:16px;overflow:hidden}
+.arch-engine-h{padding:18px 20px;border-bottom:1px solid rgba(255,255,255,.1);text-align:center}
+.arch-engine-h .t{font-family:var(--fd);font-weight:700;font-size:16px;color:#fff}
+.arch-engine-h .s{font-family:var(--fm);font-size:11.5px;color:#7DF0C8;margin-top:6px}
+.arch-lanes{display:grid;grid-template-columns:repeat(4,1fr)}
+.arch-lane{padding:18px;border-right:1px solid rgba(255,255,255,.08)}
+.arch-lane:last-child{border-right:none}
+.arch-lane h5{font-family:var(--fm);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#A8E6CF;margin-bottom:11px}
+.arch-lane span{display:block;font-size:13px;color:rgba(255,255,255,.6);line-height:1.95}
+@media(max-width:680px){.arch-lanes{grid-template-columns:1fr 1fr}.arch-lane{border-bottom:1px solid rgba(255,255,255,.08)}.arch-lane:nth-child(2n){border-right:none}.arch-lane:nth-last-child(-n+2){border-bottom:none}}
+@media(max-width:430px){.arch-lanes{grid-template-columns:1fr}.arch-lane{border-right:none}.arch-lane:last-child{border-bottom:none}}
 
 
 /* split (byoc / security) */
@@ -333,12 +349,11 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 </div>
 <div class="rv in" style="transition-delay:.1s">
 <div class="inst">
-<div class="inst-top"><span class="t">spectis · coverage</span><span class="inst-live"><span class="d"></span>Live</span></div>
-<div class="plane-row"><span class="px">P1</span><div class="pmid"><div class="pname">External API</div><div class="pmeta">OpenAI · Anthropic · Bedrock</div></div><span class="pstat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div>
-<div class="plane-row"><span class="px">P2</span><div class="pmid"><div class="pname">Internal network</div><div class="pmeta">MCP · tool calls · data access</div></div><span class="pstat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div>
-<div class="plane-row"><span class="px">P3</span><div class="pmid"><div class="pname">Endpoint</div><div class="pmeta">configs · skills · processes</div></div><span class="pstat"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div>
-<div class="conn-line"></div>
-<div class="inst-foot"><span class="fl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5 12l4-4M19 12l-4 4"/></svg>Correlated by identity</span><span class="fr">username × host × agent_id</span></div>
+<div class="inst-top"><span class="t">Live coverage</span><span class="inst-live"><span class="d"></span>Live</span></div>
+<div class="plane-row"><span class="px">P1</span><div class="pmid"><div class="pname">External API</div><div class="pmeta">OpenAI · Anthropic · Bedrock</div></div><div class="pright"><div class="pcount">1,204</div><span class="pstat"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div></div>
+<div class="plane-row"><span class="px">P2</span><div class="pmid"><div class="pname">Internal network</div><div class="pmeta">MCP · tool calls · data</div></div><div class="pright"><div class="pcount">892</div><span class="pstat"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div></div>
+<div class="plane-row"><span class="px">P3</span><div class="pmid"><div class="pname">Endpoint</div><div class="pmeta">configs · skills · processes</div></div><div class="pright"><div class="pcount">2,159</div><span class="pstat"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg>Observed</span></div></div>
+<div class="inst-foot"><span class="fl"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5 12l4-4M19 12l-4 4"/></svg>Correlated by identity</span><span class="fr">3,412 events joined today</span></div>
 </div>
 </div>
 </div>
@@ -423,21 +438,24 @@ footer{border-top:1px solid var(--line);background:var(--paper2);padding:62px 0 
 <div class="feat rv" style="transition-delay:.08s"><div class="fi"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 3h6l1 4-2 2 2 2-1 4H9l-1-4 2-2-2-2z"/><circle cx="12" cy="12" r="1.5"/></svg></div><h3>Risk classification engine</h3><p>A deterministic rule pack plus an optional LLM tier scores every artifact — benign, enterprise, suspicious, harmful — with a rationale you can audit.</p></div>
 </div>
 <div class="arch rv">
-<pre><span class="h">Developers + AI clients</span>
-<span class="d">Cursor   Claude   VS Code   Codex   Windsurf   Zed   +15 more</span>
-<span class="d">   │        │         │         │         │        │</span>
-<span class="d">   ▼        ▼         ▼         ▼         ▼        ▼</span>
-<span class="h">┌────────────────────────────────────────────────────────────┐</span>
-<span class="h">│</span>  <span class="a">SPECTIS CORRELATION ENGINE</span>                                  <span class="h">│</span>
-<span class="h">│</span>  <span class="d">joins by:  username × hostname × timestamp × agent_id</span>       <span class="h">│</span>
-<span class="h">├──────────────┬──────────────┬──────────────┬────────────────┤</span>
-<span class="h">│</span> <span class="a">ENDPOINT</span>     <span class="h">│</span> <span class="a">ORCHESTRATOR</span> <span class="h">│</span> <span class="a">CLOUD+SaaS</span>   <span class="h">│</span> <span class="a">NETWORK</span>        <span class="h">│</span>
-<span class="h">│</span> <span class="d">21 clients</span>   <span class="h">│</span> <span class="d">agent id</span>     <span class="h">│</span> <span class="d">Bedrock</span>      <span class="h">│</span> <span class="d">SASE / FW</span>      <span class="h">│</span>
-<span class="h">│</span> <span class="d">MCP scan</span>     <span class="h">│</span> <span class="d">registry</span>     <span class="h">│</span> <span class="d">Vertex</span>       <span class="h">│</span> <span class="d">DNS logs</span>       <span class="h">│</span>
-<span class="h">│</span> <span class="d">tool prober</span>  <span class="h">│</span> <span class="d">tool calls</span>   <span class="h">│</span> <span class="d">M365 Copilot</span> <span class="h">│</span> <span class="d">flow data</span>      <span class="h">│</span>
-<span class="h">└──────────────┴──────┬───────┴──────────────┴────────────────┘</span>
-                      <span class="d">▼</span>
-       <span class="h">Splunk  ·  Sentinel  ·  Defender  ·  Spectis dashboard</span></pre>
+<div class="arch-cap">Developers &amp; AI clients</div>
+<div class="arch-row">
+<span class="arch-chip">Cursor</span><span class="arch-chip">Claude</span><span class="arch-chip">VS Code</span><span class="arch-chip">Codex</span><span class="arch-chip">Windsurf</span><span class="arch-chip">Zed</span><span class="arch-chip">+15 more</span>
+</div>
+<div class="arch-flow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+<div class="arch-engine">
+<div class="arch-engine-h"><div class="t">Spectis Correlation Engine</div><div class="s">joins by · username × hostname × timestamp × agent_id</div></div>
+<div class="arch-lanes">
+<div class="arch-lane"><h5>Endpoint</h5><span>21 clients</span><span>MCP scan</span><span>Tool prober</span></div>
+<div class="arch-lane"><h5>Orchestrator</h5><span>Agent identity</span><span>Registry</span><span>Tool calls</span></div>
+<div class="arch-lane"><h5>Cloud + SaaS</h5><span>Bedrock · Vertex</span><span>M365 Copilot</span><span>GitHub</span></div>
+<div class="arch-lane"><h5>Network</h5><span>SASE / FW</span><span>DNS logs</span><span>Flow data</span></div>
+</div>
+</div>
+<div class="arch-flow"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+<div class="arch-row">
+<span class="arch-chip">Splunk</span><span class="arch-chip">Sentinel</span><span class="arch-chip">Defender</span><span class="arch-chip">Spectis dashboard</span>
+</div>
 </div>
 </div>
 </section>
